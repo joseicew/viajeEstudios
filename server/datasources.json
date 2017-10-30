@@ -7,7 +7,7 @@
     "host": "localhost",
     "port": 3306,
     "url": "",
-    "database": "viajeEstudios",
+    "database": "proyecto_viaje",
     "password": "alumno",
     "name": "mysqlDs",
     "user": "root",
