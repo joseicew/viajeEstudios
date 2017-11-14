@@ -1,6 +1,6 @@
 {
   "name": "Usuario",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -8,29 +8,25 @@
   "properties": {
     "nombre": {
       "type": "string",
+      "length":25,
       "required": true
     },
     "apellidos": {
       "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "string",
-      "required": true
-    },
-    "password": {
-      "type": "string",
+      "length":50,
       "required": true
     },
     "nre": {
-      "type": "string"
+      "type": "number"
     },
     "telefono": {
-      "type": "string"
+      "type": "string",
+      "length":25
+
     },
     "curso": {
       "type": "string",
-      "required": true
+      "length":15
     }
   },
   "validations": [],
@@ -50,10 +46,10 @@
       "model": "Objetivo",
       "foreignKey": ""
     },
-    "Coordinador": {
+    "coordinador": {
       "type": "hasOne",
       "model": "Centro",
-      "foreignKey": "Coordinador"
+      "foreignKey": "coordinador"
     },
     "centro": {
       "type": "belongsTo",

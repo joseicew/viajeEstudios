@@ -2,6 +2,7 @@
   "db": {
     "name": "db",
     "connector": "memory"
+<<<<<<< HEAD
   },
   "mysqlDs": {
     "host": "localhost",
@@ -12,5 +13,7 @@
     "name": "mysqlDs",
     "user": "root",
     "connector": "mysql"
+=======
+>>>>>>> 5082a19ca31d13f384d00a2b507412198700de5b
   }
 }
