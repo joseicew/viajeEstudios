@@ -1,6 +1,11 @@
 {
   "loopback-component-explorer": {
+<<<<<<< HEAD
     "mountPath": "/explorer"
+=======
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true
+>>>>>>> 5a3ac2823557ae53313a5c4ddbb25ba3526a9078
   },
   "loopback-fixtures": {
     "fixturePath": "/fixtures/data/",

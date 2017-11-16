@@ -1,6 +1,6 @@
 {
   "name": "Usuario",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -8,29 +8,24 @@
   "properties": {
     "nombre": {
       "type": "string",
-      "required": true
+      "required": true,
+      "length": 25
     },
     "apellidos": {
       "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "string",
-      "required": true
-    },
-    "password": {
-      "type": "string",
-      "required": true
+      "required": true,
+      "length": 50
     },
     "nre": {
-      "type": "string"
+      "type": "number"
     },
     "telefono": {
-      "type": "string"
+      "type": "string",
+      "length": 25
     },
     "curso": {
       "type": "string",
-      "required": true
+      "length": 15
     }
   },
   "validations": [],
@@ -50,10 +45,10 @@
       "model": "Objetivo",
       "foreignKey": ""
     },
-    "Coordinador": {
+    "coordinador": {
       "type": "hasOne",
       "model": "Centro",
-      "foreignKey": "Coordinador"
+      "foreignKey": "coordinador"
     },
     "centro": {
       "type": "belongsTo",
@@ -61,6 +56,19 @@
       "foreignKey": "centroId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
   "methods": {}
 }

@@ -6,18 +6,20 @@
     "validateUpsert": true
   },
   "properties": {
-    "CodigoCentro": {
-      "type": "string",
+    "codigocentro": {
+      "type": "number",
       "required": true
     },
-    "Nombre": {
+    "nombre": {
       "type": "string",
-      "required": true
+      "required": true,
+      "length": 80
     },
-    "Localidad": {
-      "type": "string"
+    "localidad": {
+      "type": "string",
+      "length": 50
     },
-    "Verificado": {
+    "verificado": {
       "type": "boolean"
     }
   },
@@ -34,6 +36,51 @@
       "foreignKey": "centroId"
     }
   },
-  "acls": [],
-  "methods": {}
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "methods": {
+    "prototype.verifycado": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "this",
+          "type": "object",
+          "root": true,
+          "description": "el objeto"
+        }
+      ],
+      "description": "Va a cambiar el estado de verificado de un centro solo lo podra usar el admin",
+      "http": [
+        {
+          "path": "/verifycado",
+          "verb": "put"
+        }
+      ]
+    }
+  }
 }
